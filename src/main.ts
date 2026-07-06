@@ -46,7 +46,7 @@ async function seedDatabase(app) {
     { name: 'Мария Иванова', email: 'user@foodie.app', password: hashPassword('password123'), phone: '+7 (999) 000-00-04', role: UserRole.USER, isActive: true, isEmailVerified: true, bonusPoints: 450 },
   ];
 
-  const users = [];
+  const users: any[] = [];
   for (const u of userData) {
     const saved = await userRepo.save(userRepo.create(u));
     users.push(saved);
@@ -60,7 +60,7 @@ async function seedDatabase(app) {
   ];
 
   const restaurantRepo = ds.getRepository('Restaurant');
-  const restaurants = [];
+  const restaurants: any[] = [];
   for (const r of restaurantData) {
     const saved = await restaurantRepo.save(restaurantRepo.create(r));
     restaurants.push(saved);
