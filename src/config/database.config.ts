@@ -7,7 +7,7 @@ export default registerAs('database', (): TypeOrmModuleOptions => {
       type: 'sqlite',
       database: process.env.SQLITE_PATH || './data/food_delivery.db',
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      synchronize: true,
+    synchronize: process.env.NODE_ENV !== 'production',
       logging: process.env.NODE_ENV === 'development',
     };
   }
@@ -21,7 +21,7 @@ export default registerAs('database', (): TypeOrmModuleOptions => {
     database: process.env.DB_DATABASE || process.env.DB_NAME || 'premium_food_delivery',
     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     migrations: [__dirname + '/../migrations/*{.ts,.js}'],
-    synchronize: process.env.NODE_ENV !== 'production',
+    synchronize: true,
     logging: process.env.NODE_ENV === 'development',
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     extra: {
