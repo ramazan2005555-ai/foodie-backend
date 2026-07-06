@@ -1,0 +1,28 @@
+{
+  "type": "web_service",
+  "name": "foodie-backend",
+  "ownerId": "tea-d95o8upkh4rs738ncprg",
+  "repo": "https://github.com/ramazan2005555-ai/foodie-backend",
+  "branch": "master",
+  "autoDeploy": "yes",
+  "envVars": [
+    {"key": "NODE_ENV", "value": "production"},
+    {"key": "JWT_SECRET", "value": "foodie-secret-key-2026-production"},
+    {"key": "CORS_ORIGIN", "value": "*"},
+    {"key": "DB_HOST", "value": "dpg-d95ogt7aqgkc73fcult0-a"},
+    {"key": "DB_PORT", "value": "5432"},
+    {"key": "DB_USERNAME", "value": "foodie_db_p355_user"},
+    {"key": "DB_PASSWORD", "value": "l9GAdSvDTCxLy8hfCxW2Md5IkN9S8GGO"},
+    {"key": "DB_DATABASE", "value": "foodie_db_p355"}
+  ],
+  "serviceDetails": {
+    "runtime": "node",
+    "envSpecificDetails": {
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm run seed && node dist/main.js"
+    },
+    "plan": "free",
+    "region": "frankfurt",
+    "healthCheckPath": "/api/v1/health"
+  }
+}
