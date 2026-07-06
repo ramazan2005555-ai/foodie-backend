@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/http-exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import { DataSource } from 'typeorm';
 import { UserRole } from './common/guards/roles.guard';
 import { RestaurantStatus } from './modules/restaurants/restaurant.entity';
 import { CouponType, CouponStatus } from './modules/coupons/coupon.entity';
@@ -18,7 +19,7 @@ function hashPassword(pwd: string): string {
 
 async function seedDatabase(app) {
   const logger = new Logger('Seed');
-  const ds = app.get('default');
+  const ds = app.get(DataSource);
   const queryRunner = ds.createQueryRunner();
   const tables = await queryRunner.getTables();
   await queryRunner.release();
