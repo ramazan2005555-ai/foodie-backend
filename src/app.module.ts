@@ -19,6 +19,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
 import { AiModule } from './modules/ai/ai.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { CouponsModule } from './modules/coupons/coupons.module';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { CouponsModule } from './modules/coupons/coupons.module';
       rootPath: join(__dirname, '..', 'public'),
       serveRoot: '/public',
     }),
+    HealthModule,
     AuthModule,
     UsersModule,
     RestaurantsModule,
